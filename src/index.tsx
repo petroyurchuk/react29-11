@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Title } from './Title'
+import Title from './Title'
 
 const Content = () => {
     return (
@@ -23,7 +23,8 @@ const Content = () => {
 const App = () => {
     return (
         <>
-            <Title />
+            <Title title="React" year={2020} />
+            <Title title="App" year={2022} />
             <Content />
         </>
     )
