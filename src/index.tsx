@@ -1,31 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Title from './Title'
+import Content from './Content'
 
-const Content = () => {
-    return (
-        <>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                sunt dolorem eum nesciunt, iusto, doloremque eius quidem,
-                similique cupiditate cum esse excepturi laudantium labore quae
-                fugit dolores vitae maxime eaque!
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                sed incidunt alias quasi dolore! Eos error officiis corporis
-                obcaecati quo? Illum nisi laudantium aliquid, totam animi harum
-                dolore atque neque?
-            </p>
-        </>
-    )
-}
 const App = () => {
     return (
         <>
             <Title title="React" year={2020} />
             <Title title="App" year={2022} />
-            <Content />
+            <Content
+                text1="Lorem ipsum dolor, sit amet consectetur adipisicing elit. "
+                text2="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis porro nisi maxime delectus consequatur quas perspiciatis! Numquam, itaque! "
+            />
         </>
     )
 }
