@@ -1,11 +1,11 @@
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
-import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Container } from '@mui/system'
 import Logo from 'components/Logo/Logo'
-
+import Menu from 'components/Menu/Menu'
+import CartHeader from 'components/CartHeader/CartHeader'
 import './Header.scss'
 type Props = {}
 
@@ -24,11 +24,8 @@ const Header = (props: Props) => {
                         <MenuIcon />
                     </IconButton>
                     <Logo />
-                    <Button color="inherit">Home</Button>
-                    <Button color="inherit">About</Button>
-                    <Button color="inherit">Payment</Button>
-                    <Button color="inherit">Shipping</Button>
-                    <Button color="inherit">Cart</Button>
+                    <Menu />
+                    <CartHeader />
                 </Toolbar>
             </Container>
         </AppBar>
