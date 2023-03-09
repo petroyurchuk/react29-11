@@ -5,7 +5,6 @@ const Home = (props: Props) => {
     return (
         <div>
             <ProductList />
-            Home
         </div>
     )
 }
