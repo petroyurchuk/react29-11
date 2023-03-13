@@ -6,7 +6,6 @@ import {
     TextField,
 } from '@mui/material'
 import { useState } from 'react'
-
 import './ProductListItem.scss'
 type Props = {
     title: string
