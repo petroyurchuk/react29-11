@@ -1,9 +1,16 @@
-type Props = {}
-const CartHeader = (props: Props) => {
+type Props = {
+    productsInCart: {
+        [id: number]: number
+    }
+}
+const CartHeader = ({ productsInCart }: Props) => {
     return (
         <div>
-            <div>0</div>
-            <div>$0</div>
+            {Object.keys(productsInCart).map((productId) => (
+                <div key={productId}>
+                    {productId} : {productsInCart[parseInt(productId)]}
+                </div>
+            ))}
         </div>
     )
 }
