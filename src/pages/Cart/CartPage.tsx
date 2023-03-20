@@ -1,43 +1,21 @@
-import productsArray, { getProductsObject, Product } from 'utils/productsArray'
 import { Typography } from '@mui/material'
+import CartTotal from 'components/CartTotal/CartTotal'
+import CartProductList from 'components/CartProductList/CartProductList'
 
 type Props = {
     productsInCart: {
         [id: number]: number
     }
-    productsObject?: {
-        [id: number]: Product
-    }
 }
 
-const CartPage = ({
-    productsInCart,
-    productsObject = getProductsObject(productsArray),
-}: Props) => {
+const CartPage = ({ productsInCart }: Props) => {
     return (
         <div>
             <Typography variant="h4" component={'h1'} sx={{ color: 'green' }}>
                 CartPage
             </Typography>
-            <div>
-                {Object.keys(productsInCart).map((productId) => (
-                    <div key={productId}>
-                        {productsObject[parseInt(productId)].title} :{' '}
-                        {productsInCart[parseInt(productId)]} :{' '}
-                        {productsObject[parseInt(productId)].price}
-                    </div>
-                ))}
-            </div>
-            <div>
-                Total ${' '}
-                {Object.keys(productsInCart).reduce(
-                    (total, productId) =>
-                        total +
-                        productsObject[parseInt(productId)].price *
-                            productsInCart[parseInt(productId)],
-                    0
-                )}
-            </div>
+            <CartProductList productsInCart={productsInCart} />
+            <CartTotal productsInCart={productsInCart} />
         </div>
     )
 }
