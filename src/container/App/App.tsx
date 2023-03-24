@@ -8,6 +8,7 @@ import Home from 'pages/Home/Home'
 import { Route, Routes } from 'react-router-dom'
 import CartPage from 'pages/Cart/CartPage'
 import { omit } from 'lodash'
+
 type Props = {}
 
 type ProductsCartType = {
@@ -28,6 +29,13 @@ const App = (props: Props) => {
     const removeProductFromCart = (id: number) => {
         setProductsInCart((prevState) => omit(prevState, id))
     }
+    const changeProductQuantity = (id: number, count: number) => {
+        setProductsInCart((prevState) => ({
+            ...prevState,
+            [id]: count,
+        }))
+    }
+
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
@@ -49,6 +57,7 @@ const App = (props: Props) => {
                             <CartPage
                                 productsInCart={productsInCart}
                                 removeProductFromCart={removeProductFromCart}
+                                changeProductQuantity={changeProductQuantity}
                             />
                         }
                     />
