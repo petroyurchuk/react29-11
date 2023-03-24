@@ -7,6 +7,8 @@ import { Container } from '@mui/material'
 import Home from 'pages/Home/Home'
 import { Route, Routes } from 'react-router-dom'
 import CartPage from 'pages/Cart/CartPage'
+import { omit } from 'lodash'
+
 type Props = {}
 
 type ProductsCartType = {
@@ -24,10 +26,21 @@ const App = (props: Props) => {
             [id]: (prevState[id] || 0) + count,
         }))
     }
+    const removeProductFromCart = (id: number) => {
+        setProductsInCart((prevState) => omit(prevState, id))
+    }
+    const changeProductQuantity = (id: number, count: number) => {
+        setProductsInCart((prevState) => ({
+            ...prevState,
+            [id]: count,
+        }))
+    }
+
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
+
             <Container
                 sx={{
                     padding: '40px 0',
@@ -40,7 +53,13 @@ const App = (props: Props) => {
                     />
                     <Route
                         path="/cart"
-                        element={<CartPage productsInCart={productsInCart} />}
+                        element={
+                            <CartPage
+                                productsInCart={productsInCart}
+                                removeProductFromCart={removeProductFromCart}
+                                changeProductQuantity={changeProductQuantity}
+                            />
+                        }
                     />
                 </Routes>
             </Container>
